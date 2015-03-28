@@ -12,27 +12,37 @@ print(sys.executable)thon
 
 %}
 
+%For testing:
+%-------------
+%http://requestb.in/
+
+
+%http://www.whatarecookies.com/cookietest.asp
+
+
+
+s = py.requests.session();
+
+sm = requests.session();
+r = sm.get('http://www.cnn.com');
+
+
+%http://www.html-kit.com/tools/cookietester/
+cookie_url = 'http://www.whatarecookies.com/cookietest.asp';
+temp1 = s.get(cookie_url);
+pause(10)
+temp2 = s.get(cookie_url);
+
+
+%doc_obj = jsoup.getDoc(char(temp.text),cookie_url);
+
 
 
 test = py.requests.get('http://www.cnn.com');
 
+url = 'http://requestb.in/1czsjjd1';
+
+wtf = py.requests.delete(url,pyargs('data','This will not work'));
+
 
 r = requests.models.Response(test);
-%test - Response
-
-%Working with a dict, make function that returns a struct or map?
-headers = test.headers;
-
-wtf = requests.ml.Headers(test.headers);
-
-%TODO: Let's implement invalid name setting in struct using mex
-
-values = cell(values(headers));
-
-%Seems to be an error in the parser
-key_names   = cellfun(@char,cell(keys(headers)),'un',0);
-
-values = cellfun(@char,values,'un',0);
-
-%NOTE: For headers, the values will all be strings
-
